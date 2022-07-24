@@ -29,6 +29,7 @@ public class SeamCarver{
                 for(int j = 0; j<h; j++) {
                         for (int x = 0; x < w; x++) {
                                 energy1[j][x] = energy(x,j);
+                                StdOut.println(energy1[j][x]);
 
                         }}
                 for(int x = 0; x<w; x++){
@@ -83,7 +84,9 @@ public class SeamCarver{
                 if(x==0 || (y==0)||x==pic.width()-1|| y== pic.height()-1){
                         energyreturn = 1000;
                 }
-                else{energyreturn = Math.sqrt((xenergy(x,y)+yenergy(x,y)));}
+                else{
+                        double sum = xenergy(x,y) + yenergy(x,y);
+                        energyreturn = Math.sqrt(sum);}
                 return energyreturn;
         }
 
